@@ -1,0 +1,29 @@
+# Reading pref.tcl
+# ERROR: No extended dataflow license exists
+# do MIPS_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying D:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/Usuário/Desktop/Preparação riot/GitHub/0rganizado_FALTAreadme/Arquitetura/Projeto Final/Inicio de projeto/Componentes/ShiftL.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:07:26 on Oct 13,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/Usuário/Desktop/Preparação riot/GitHub/0rganizado_FALTAreadme/Arquitetura/Projeto Final/Inicio de projeto/Componentes/ShiftL.vhd 
+# -- Loading package STANDARD
+# init_dbinfo() DATABASE ERROR: (sqlite3_open C:/Users/Usuário/Desktop/Preparação riot/GitHub/0rganizado_FALTAreadme/Arquitetura/Projeto Final/Inicio de projeto/simulation/modelsim/rtl_work/_lib.qdb): unable to open database file
+# mtilibWrite(): INTERNAL ERROR: Unexpected null object encountered
+# ** Fatal: (vcom-9) Problem while writing token file "C:/Users/Usuário/Desktop/Preparação riot/GitHub/0rganizado_FALTAreadme/Arquitetura/Projeto Final/Inicio de projeto/simulation/modelsim/rtl_work/_temp/vcom9j5jaw".
+# ** Note: C:/Users/Usuário/Desktop/Preparação riot/GitHub/0rganizado_FALTAreadme/Arquitetura/Projeto Final/Inicio de projeto/Componentes/ShiftL.vhd(1): VHDL Compiler exiting
+# End time: 19:07:27 on Oct 13,2024, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: D:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./MIPS_run_msim_rtl_vhdl.do line 8
+# D:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {C:/Users/Usuário/Desktop/Preparação riot/GitHub/0rganizado_FALTAreadme/Arquitetura/Projeto Final/Inicio de projeto/Componentes/Sh..."

@@ -1,0 +1,15 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {D:/Pastas/projetoFinalIsaias/Inicio de projeto/Componentes/ShiftL.vhd}
+vcom -93 -work work {D:/Pastas/projetoFinalIsaias/Inicio de projeto/Componentes/Ja testado/RegBank.vhd}
+vcom -93 -work work {D:/Pastas/projetoFinalIsaias/Inicio de projeto/Componentes/Ja testado/ALU.vhd}
+vcom -93 -work work {D:/Pastas/projetoFinalIsaias/Inicio de projeto/Componentes/sign_extend.vhd}
+vcom -93 -work work {D:/Pastas/projetoFinalIsaias/Inicio de projeto/Componentes/PC.vhd}
+vcom -93 -work work {D:/Pastas/projetoFinalIsaias/Inicio de projeto/Componentes/MUX21.vhd}
+vcom -93 -work work {D:/Pastas/projetoFinalIsaias/Inicio de projeto/MIPS.vhd}
+

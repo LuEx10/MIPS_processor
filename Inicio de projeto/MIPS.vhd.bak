@@ -1,0 +1,88 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity MIPS is
+end MIPS;
+
+architecture bhv of MIPS is
+
+signal ALUSrc, RegWrite	:std_logic; -- sinais de controle
+	
+signal clk, reset, Zero, Overflow, Cout      : std_logic;	--outros sinais
+signal ALUCtl  : in  STD_LOGIC_VECTOR(3 downto 0) := (others => '0');
+signal rdAddr1, rdAddr2, wrAddr  : std_logic_vector(4 downto 0):= (others => '0');
+signal wData   : std_logic_vector(31 downto 0):= (others => '0');
+signal rdData1, rdData2, AluOut, AluIn2, SignExt, nextPC, PC, Instruction : std_logic_vector(31 downto 0):= (others => '0');
+signal RWriteAddr1, RWriteAddr2, SignExtIn : std_logic_vector(31 downto 0):= (others => '0');
+
+
+begin --!!!!!!!!!!!! rever entradas RegBank!!!!!!!!!!!!!!!!!!!!!!!
+
+	--PC
+	PC_instance : entity work.RegBank
+		PORT MAP(
+		clk => clk,
+		next_address => nextPC,
+		current_address => PC
+		);
+
+	--Sign-Extend
+	SignExtIn <= Instruction(15 downto 0);
+	SigneExtend_instance : entity work.sign_extend
+		PORT MAP(
+		x => SignExtIn,
+		y => SignExt
+		);
+	
+	--RegDst
+	RWriteAddr1 <= Instruction(20 downto 16);
+	RWriteAddr2 <= Instruction(15 downto 11);
+	
+	MuxRegDst_instance: entity work.ALU
+		PORT MAP(
+			key => RegDst,								-- controle
+			O => RWriteAddr1,							-- entrada 0
+			I => RWriteAddr2,							-- entrada 1
+			M => wrAddr									-- saida
+		);
+
+	--RegBank
+	rdAddr1 <= Instruction(25 downto 21);
+	rdAddr2 <= Instruction(20 downto 16);
+	RegBank_instance : entity work.RegBank
+       PORT MAP (
+            clk => clk,
+            reset => reset,
+            we => RegWrite,
+            rdAddr1 => rdAddr1,
+            rdAddr2 => rdAddr2,
+            wrAddr => wrAddr,
+            wData => wData,
+            rdData1 => rdData1,
+            rdData2 => rdData2
+        );
+		  
+	--ALUSrc
+	MuxAlu_instance: entity work.ALU
+		PORT MAP(
+			key => ALUSrc,								-- controle
+			O => rdData2,								-- entrada 0
+			I => SignExt,								-- entrada 1
+			M => AluIn2									-- saida
+		);
+	
+	--ALU
+	ALU_instance : entity work.ALU
+		PORT MAP(
+			A => rdData1,								-- Reg1
+			B => AluIn2,								-- MUX (entrada 2 da ALU)
+			ALUCtl => ALUCtl,							-- ALU Ctrl
+			R => AluOut,								-- ALU result
+			Zero => Zero,								-- Zero
+			Overflow => Overflow,					-- ! ver se precisa
+			Cout => Cout								-- ! ver se precisa
+		);
+	
+	
+
+end bhv;
