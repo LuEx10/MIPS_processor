@@ -15,9 +15,9 @@ Compile all modules and run the simulation
 Check the outputs and internal signals through the waveform.
 
 ## Authors
-Lucas Fiuza Garcia - [GitHub](https://github.com/LuEx10)
-Eduardo Augusto Marras de Souza - [GitHub](https://github.com/edumarras)
-Bianca Aparecida Andrade - [GitHub](https://github.com/AndradeBia)
+- Lucas Fiuza Garcia - [GitHub](https://github.com/LuEx10)
+- Eduardo Augusto Marras de Souza - [GitHub](https://github.com/edumarras)
+- Bianca Aparecida Andrade - [GitHub](https://github.com/AndradeBia)
 
 ## Acknowledgments
 This project was inspired by the Computer Architecture classes at Pontifical Catholic University of Campinas and the book _"Patterson & Hennessy, Computer Organization and Design – The Hardware/software Interface"_
